@@ -48,6 +48,8 @@ namespace SpaceShooter
 
         #endregion
 
+        #region Unity Event
+
         protected override void Start()
         {
             base.Start();
@@ -56,6 +58,53 @@ namespace SpaceShooter
             m_Rigid.mass = m_Mass;
 
             m_Rigid.inertia = 1;
+        }
+
+        private void Update()
+        {
+            ThrustControl = 0;
+            TorqueControl = 0;
+
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                ThrustControl = 1.0f;
+            }
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                ThrustControl = -1.0f;
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                TorqueControl = 1.0f;
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                TorqueControl = -1.0f;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            UpdateRigidbody();
+        }
+
+        #endregion
+
+        /// <summary>
+        /// The method that add force the ship for movement
+        /// </summary>
+        private void UpdateRigidbody()
+        {
+            m_Rigid.AddForce(ThrustControl * m_Thrust * transform.up * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_MaxLinearVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            m_Rigid.AddTorque(TorqueControl * m_Mobility * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
         }
     }
 }
