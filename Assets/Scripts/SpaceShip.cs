@@ -58,33 +58,7 @@ namespace SpaceShooter
             m_Rigid.mass = m_Mass;
 
             m_Rigid.inertia = 1;
-        }
-
-        private void Update()
-        {
-            ThrustControl = 0;
-            TorqueControl = 0;
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                ThrustControl = 1.0f;
-            }
-
-            if (Input.GetKey(KeyCode.DownArrow))
-            {
-                ThrustControl = -1.0f;
-            }
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                TorqueControl = 1.0f;
-            }
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                TorqueControl = -1.0f;
-            }
-        }
+        }        
 
         private void FixedUpdate()
         {
