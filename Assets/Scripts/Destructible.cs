@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SpaceShooter
 {
@@ -8,6 +9,7 @@ namespace SpaceShooter
     public class Destructible : Entity
     {
         #region Properties
+
         /// <summary>
         /// Object ignores damage
         /// </summary>
@@ -61,7 +63,12 @@ namespace SpaceShooter
         protected virtual void OnDeath()
         {
             Destroy(gameObject);
+
+            m_EventOnDeath?.Invoke();
         }
+
+        [SerializeField] private UnityEvent m_EventOnDeath;
+        public UnityEvent EventOnDeath => m_EventOnDeath;
     }
 }
 

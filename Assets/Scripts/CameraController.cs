@@ -30,4 +30,9 @@ public class CameraController : MonoBehaviour
             m_Camera.transform.rotation = Quaternion.Slerp(m_Camera.transform.rotation, m_Target.rotation, m_InterpolationAngular * Time.deltaTime);
         }
     }
+
+    public void SetTarget(Transform newTarget)
+    {
+        m_Target = newTarget;
+    }
 }
