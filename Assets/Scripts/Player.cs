@@ -1,13 +1,13 @@
-using System;
 using UnityEngine;
 
 namespace SpaceShooter
 {
     public class Player : MonoBehaviour
     {
-        [SerializeField] private int m_NumLives;
+        [SerializeField] private int m_NumLives;        
+
         [SerializeField] private SpaceShip m_Ship;
-        [SerializeField] private GameObject m_PlayerShipPrefab;
+        [SerializeField] private GameObject m_PlayerShipPrefab;        
 
         [SerializeField] private CameraController m_CameraController;
         [SerializeField] private MovementController m_MovementController;

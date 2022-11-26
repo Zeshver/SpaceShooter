@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef297db74104a9949838fabef24e3e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NumLives: 3
+  m_NumLives: 4
   m_Ship: {fileID: 1311735944}
   m_PlayerShipPrefab: {fileID: 2280788292097402733, guid: 0c81fbc7b9f60af4ea488ef93c79a100, type: 3}
   m_CameraController: {fileID: 26521630}
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
   m_Radius: 40
-  m_LimitMode: 0
+  m_LimitMode: 1
 --- !u!4 &547534438
 Transform:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002832426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.45, y: 7.86, z: 0}
+  m_LocalPosition: {x: 9, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
