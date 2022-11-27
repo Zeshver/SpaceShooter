@@ -13,19 +13,23 @@ namespace SpaceShooter
             if (IsReceive == true)
             {
                 return;
-            }            
+            }
 
-            if (collision != null)
+            SpaceShip m_Ship = FindObjectOfType<SpaceShip>();
+
+            if (m_Ship != null)
             {
                 target.IsReceive = true;
-
-                collision.transform.position = target.transform.position;
+                                
+                m_Ship.transform.position = target.transform.position;
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision != null)
+            SpaceShip m_Ship = FindObjectOfType<SpaceShip>();
+
+            if (m_Ship != null)
             {
                 IsReceive = false;
             }
