@@ -32,6 +32,8 @@ namespace SpaceShooter
         /// </summary>
         [SerializeField] private float m_MaxAngularVelocity;
 
+        [SerializeField] private Turret[] m_Turrets;
+
         private Rigidbody2D m_Rigid;
 
         #region Public API
@@ -79,6 +81,17 @@ namespace SpaceShooter
             m_Rigid.AddTorque(TorqueControl * m_Mobility * Time.fixedDeltaTime, ForceMode2D.Force);
 
             m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+        }
+
+        public void Fire(TurretMode mode)
+        {
+            for (int i = 0; i < m_Turrets.Length; i++)
+            {
+                if (m_Turrets[i].Mode == mode)
+                {
+                    m_Turrets[i].Fire();
+                }
+            }
         }
     }
 }
