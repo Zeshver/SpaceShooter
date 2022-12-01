@@ -2,11 +2,13 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
-    public class Player : MonoBehaviour
+    public class Player : SingletonBase<Player>
     {
         [SerializeField] private int m_NumLives;        
 
         [SerializeField] private SpaceShip m_Ship;
+        public SpaceShip ActiveShip => m_Ship;
+
         [SerializeField] private GameObject m_PlayerShipPrefab;        
 
         [SerializeField] private CameraController m_CameraController;
