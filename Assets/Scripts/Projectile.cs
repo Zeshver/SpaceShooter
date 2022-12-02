@@ -4,6 +4,12 @@ namespace SpaceShooter
 {
     public class Projectile : Entity
     {
+        private enum ProjectileType
+        {
+            Explosion,
+            Single
+        }
+
         [SerializeField] private float m_Velocity;
 
         [SerializeField] private float m_Lifetime;
@@ -16,7 +22,7 @@ namespace SpaceShooter
 
         private float m_Timer;
 
-        private void Update()
+        protected virtual void Update()
         {
             float stepLenght = Time.deltaTime * m_Velocity;
             Vector2 step = transform.up * stepLenght;
