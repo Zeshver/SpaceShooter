@@ -13,7 +13,7 @@ namespace SpaceShooter
 
         public Vector2 GetRandomInsideZone()
         {
-            return transform.position + Random.insideUnitSphere * m_Radius;
+            return (Vector2) transform.position + (Vector2) UnityEngine.Random.insideUnitSphere * m_Radius;
         }
 #if UNITY_EDITOR
         private static Color GizmoColor = new Color(0, 1, 0, 0.3f);
