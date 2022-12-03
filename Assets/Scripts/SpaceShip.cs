@@ -34,10 +34,16 @@ namespace SpaceShooter
 
         [SerializeField] private int m_MaxEnergy;
         [SerializeField] private int m_MaxAmmo;
+
+        [SerializeField] private float m_MinThrust;
+        [SerializeField] private float m_MaxThrust;
+
         [SerializeField] private int m_EnergyRegenPerSecond;
 
         private float m_PrimaryEnergy;
         private int m_SecondaryAmmo;
+
+        [SerializeField] private float m_Timer;
 
         [SerializeField] private Turret[] m_Turrets;
 
@@ -63,13 +69,28 @@ namespace SpaceShooter
         {
             base.Start();
 
+            m_Thrust = m_MinThrust;
+
             m_Rigid = GetComponent<Rigidbody2D>();
             m_Rigid.mass = m_Mass;
 
             m_Rigid.inertia = 1;
 
             InitOffensive();
-        }        
+        }
+
+        private void Update()
+        {
+            if (m_Timer > 0)
+            {
+                m_Timer -= Time.deltaTime;
+            }
+
+            if (m_Timer <= 0)
+            {
+                m_Thrust = m_MinThrust;
+            }
+        }
 
         private void FixedUpdate()
         {
@@ -113,6 +134,13 @@ namespace SpaceShooter
         public void AddAmmo(int ammo)
         {
             m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
+        }
+
+        public void AddSpeed(int speed, float timer)
+        {
+            m_Thrust = Mathf.Clamp(m_Thrust + speed, 0, m_MaxThrust);
+
+            m_Timer = timer;
         }
 
         private void InitOffensive()

@@ -235,13 +235,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Mass: 1
-  m_Thrust: 1000
+  m_Thrust: 500
   m_Mobility: 2000
-  m_MaxLinearVelocity: 15
+  m_MaxLinearVelocity: 5
   m_MaxAngularVelocity: 360
   m_MaxEnergy: 20
   m_MaxAmmo: 10
-  m_EnergyRegenPerSecond: 1
+  m_MinThrust: 500
+  m_MaxThrust: 1000
+  m_MinTimerThrustBoost: 0
+  m_MaxTimerThrustBoost: 10
+  m_EnergyRegenPerSecond: 2
   m_Turrets:
   - {fileID: 1333811942}
   - {fileID: 1846827427}
