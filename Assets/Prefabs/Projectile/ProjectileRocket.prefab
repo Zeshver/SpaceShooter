@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6193776339886917547}
-  - component: {fileID: 1531581404987926432}
+  - component: {fileID: -6938788388414155447}
   - component: {fileID: 8469364213184781886}
   m_Layer: 0
   m_Name: ProjectileRocket
@@ -174,7 +174,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1531581404987926432
+--- !u!114 &-6938788388414155447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,14 +183,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3354272563132077730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 429067a39b6e56b45925672f9d60f13d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b55f6d681e35704fa66631cf95c36bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
+  type: 1
   m_Velocity: 10
   m_Lifetime: 10
   m_Damage: 2
   m_ImpactEffect: {fileID: 0}
+  m_Radius: 2
+  m_ExplosionDamage: 10
 --- !u!82 &8469364213184781886
 AudioSource:
   m_ObjectHideFlags: 0

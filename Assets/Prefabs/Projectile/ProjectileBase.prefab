@@ -178,10 +178,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
+  type: 1
   m_Velocity: 10
   m_Lifetime: 10
   m_Damage: 2
   m_ImpactEffect: {fileID: 0}
+  AllDestructibles: []
+  m_Target: {fileID: 0}
 --- !u!82 &8469364213184781886
 AudioSource:
   m_ObjectHideFlags: 0

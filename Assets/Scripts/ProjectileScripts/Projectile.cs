@@ -4,13 +4,15 @@ namespace SpaceShooter
 {
     public class Projectile : Entity
     {
-        private enum ProjectileType
+        public enum ProjectileType
         {
-            Explosion,
+            Homing,
             Single
         }
 
-        [SerializeField] private float m_Velocity;
+        public ProjectileType type;
+
+        [SerializeField] protected float m_Velocity;
 
         [SerializeField] private float m_Lifetime;
 
@@ -18,7 +20,7 @@ namespace SpaceShooter
 
         [SerializeField] private ImpactEffect m_ImpactEffect;
 
-        private Destructible m_ParentDest;
+        protected Destructible m_ParentDest;
 
         private float m_Timer;
 
@@ -48,7 +50,10 @@ namespace SpaceShooter
                 Destroy(gameObject);
             }
 
-            transform.position += new Vector3(step.x, step.y, 0);
+            if (type == ProjectileType.Single)
+            {
+                transform.position += new Vector3(step.x, step.y, 0);
+            }
         }
 
         private void OnProjectileLifeEnd(Collider2D col, Vector2 pos)

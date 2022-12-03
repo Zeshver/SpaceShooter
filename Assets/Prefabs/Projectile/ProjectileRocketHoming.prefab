@@ -149,10 +149,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6193776339886917547}
-  - component: {fileID: -6450489278935292226}
+  - component: {fileID: -6855223431627116517}
   - component: {fileID: 8469364213184781886}
   m_Layer: 0
-  m_Name: ProjectileHomingMissile
+  m_Name: ProjectileRocketHoming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6450489278935292226
+--- !u!114 &-6855223431627116517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,16 +183,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3354272563132077730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b55f6d681e35704fa66631cf95c36bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 3543e5307b261764f91210858bcc0c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
   m_Velocity: 10
   m_Lifetime: 10
-  m_Damage: 10
+  m_Damage: 2
   m_ImpactEffect: {fileID: 0}
-  m_Radius: 3
-  m_ExplosionDamage: 10
+  AllDestructibles: []
 --- !u!82 &8469364213184781886
 AudioSource:
   m_ObjectHideFlags: 0
