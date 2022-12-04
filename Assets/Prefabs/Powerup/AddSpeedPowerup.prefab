@@ -63,8 +63,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectType: 2
-  m_Value: 200
+  m_Value: 5000
+  m_SecondValue: 20
   m_ThrustBoostTime: 5
+  m_IndestructibleTime: 0
 --- !u!1 &5291856420025968666
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ namespace SpaceShooter
         /// Pushing force
         /// </summary>
         [SerializeField] private float m_Thrust;
+        [SerializeField] private float m_MinThrust;
+        [SerializeField] private float m_MaxThrust;
 
         /// <summary>
         /// Rotating force
@@ -23,31 +25,29 @@ namespace SpaceShooter
         [SerializeField] private float m_Mobility;
 
         /// <summary>
-        /// Maximum line speed
+        /// Default,maximum and minimum line speed
         /// </summary>
+        [SerializeField] private float m_LinearVelocity;
+        [SerializeField] private float m_MinLinearVelocity;
         [SerializeField] private float m_MaxLinearVelocity;
 
         /// <summary>
         /// Maximum rotate speed
         /// </summary>
         [SerializeField] private float m_MaxAngularVelocity;
-
-        [SerializeField] private int m_MaxEnergy;
+        
         [SerializeField] private int m_MaxAmmo;
-
-        [SerializeField] private float m_MinThrust;
-        [SerializeField] private float m_MaxThrust;
-
+        [SerializeField] private int m_MaxEnergy;
         [SerializeField] private int m_EnergyRegenPerSecond;
-
-        private float m_PrimaryEnergy;
-        private int m_SecondaryAmmo;
 
         [SerializeField] private float m_TimerThrustBoost;
 
         [SerializeField] private Turret[] m_Turrets;
 
         private Rigidbody2D m_Rigid;
+
+        private float m_PrimaryEnergy;
+        private int m_SecondaryAmmo;
 
         #region Public API
 
@@ -70,6 +70,7 @@ namespace SpaceShooter
             base.Start();
 
             m_Thrust = m_MinThrust;
+            m_LinearVelocity = m_MinLinearVelocity;
 
             m_Rigid = GetComponent<Rigidbody2D>();
             m_Rigid.mass = m_Mass;
@@ -91,6 +92,7 @@ namespace SpaceShooter
                 {
                     m_TimerThrustBoost = 0;
                     m_Thrust = m_MinThrust;
+                    m_LinearVelocity = m_MinLinearVelocity;
                 }
             }            
         }
@@ -111,7 +113,7 @@ namespace SpaceShooter
         {
             m_Rigid.AddForce(ThrustControl * m_Thrust * transform.up * Time.fixedDeltaTime, ForceMode2D.Force);
 
-            m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_MaxLinearVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
+            m_Rigid.AddForce(-m_Rigid.velocity * (m_Thrust / m_LinearVelocity) * Time.fixedDeltaTime, ForceMode2D.Force);
 
             m_Rigid.AddTorque(TorqueControl * m_Mobility * Time.fixedDeltaTime, ForceMode2D.Force);
 
@@ -139,9 +141,10 @@ namespace SpaceShooter
             m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
         }
 
-        public void AddSpeed(int speed, float timer)
+        public void AddSpeed(int thrust, int maxLinearVelocity, float timer)
         {
-            m_Thrust = Mathf.Clamp(m_Thrust + speed, 0, m_MaxThrust);
+            m_Thrust = Mathf.Clamp(m_Thrust + thrust, 0, m_MaxThrust);
+            m_LinearVelocity = maxLinearVelocity;
 
             m_TimerThrustBoost = timer;
         }

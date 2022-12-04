@@ -15,6 +15,8 @@ namespace SpaceShooter
         [SerializeField] private EffectType m_EffectType;
 
         [SerializeField] private float m_Value;
+        [SerializeField] private float m_SecondValue;
+
         [SerializeField] private float m_ThrustBoostTime;
         [SerializeField] private float m_IndestructibleTime;
 
@@ -32,7 +34,7 @@ namespace SpaceShooter
 
             if (m_EffectType == EffectType.AddSpeed)
             {
-                ship.AddSpeed((int)m_Value, (int)m_ThrustBoostTime);
+                ship.AddSpeed((int)m_Value, (int)m_SecondValue, (int)m_ThrustBoostTime);
             }
 
             if (m_EffectType == EffectType.AddIndestructible)

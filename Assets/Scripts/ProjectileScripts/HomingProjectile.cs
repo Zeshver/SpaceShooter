@@ -1,10 +1,11 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace SpaceShooter
 {
     public class HomingProjectile : Projectile
     {
-        [SerializeField] private Destructible[] AllDestructible;
+        [SerializeField] private Destructible[] AllDestructibles;
         [SerializeField] private Destructible m_Target;
 
         protected override void Update()
@@ -16,28 +17,28 @@ namespace SpaceShooter
 
         private void SearchTarget()
         {
-            AllDestructible = FindObjectsOfType<Destructible>();
+            AllDestructibles = FindObjectsOfType<Destructible>();
 
-            float stepLenght = Time.deltaTime * m_Velocity;
             float distance = Mathf.Infinity;
 
             Vector2 m_Position = transform.position;
+            float stepLenght = Time.deltaTime * m_Velocity;
 
-            for (int i = 0; i < AllDestructible.Length; i++)
+            for (int i = 0; i < AllDestructibles.Length; i++)
             {
-                Vector2 diff = (Vector2)AllDestructible[i].transform.position - m_Position;
+                Vector2 diff = (Vector2)AllDestructibles[i].transform.position - m_Position;
                 float curDistance = diff.sqrMagnitude;
 
-                if (curDistance < distance)
+                if (curDistance < distance && AllDestructibles[i] != m_ParentDest)
                 {
-                    m_Target = AllDestructible[i];
+                    m_Target = AllDestructibles[i];
                     distance = curDistance;
                 }
             }
 
             if (type == ProjectileType.Homing)
             {
-                transform.position = Vector3.MoveTowards(m_Position, m_Target.transform.position, distance);
+                transform.position = Vector3.MoveTowards(m_Position, m_Target.transform.position, stepLenght);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace SpaceShooter
 
         [SerializeField] private ImpactEffect m_ImpactEffect;
 
-        protected Destructible m_ParentDest;
+        [SerializeField] protected Destructible m_ParentDest;
 
         private float m_Timer;
 
