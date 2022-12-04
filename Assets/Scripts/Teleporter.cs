@@ -15,17 +15,21 @@ namespace SpaceShooter
                 return;
             }
 
-            if (collision != null)
+            SpaceShip ship = collision.transform.root.GetComponent<SpaceShip>();
+
+            if (ship != null)
             {
                 target.IsReceive = true;
 
-                collision.transform.position = target.transform.position;
+                ship.transform.position = target.transform.position;
             }
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision != null)
+            SpaceShip ship = collision.transform.root.GetComponent<SpaceShip>();
+
+            if (ship != null)
             {
                 IsReceive = false;
             }

@@ -1,11 +1,18 @@
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 namespace SpaceShooter
 {
     public class ExplosionProjectile : Projectile
     {
+        [SerializeField] private ParticleSystem m_ParticleSystemExplosion;
+
         [SerializeField] private float m_Radius;
         [SerializeField] private int m_ExplosionDamage;
+        [SerializeField] private int m_LifeTimeParticleExplosion;
 
         protected override void Update()
         {
@@ -14,6 +21,8 @@ namespace SpaceShooter
 
         private void OnDestroy()
         {
+            ParticleExplosion();
+
             Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, m_Radius);
 
             foreach(Collider2D target in cols)
@@ -26,5 +35,22 @@ namespace SpaceShooter
                 }
             }
         }
+
+        private void ParticleExplosion()
+        {
+            m_ParticleSystemExplosion.transform.parent = null;
+            m_ParticleSystemExplosion.Play();
+            Destroy(m_ParticleSystemExplosion.gameObject, m_LifeTimeParticleExplosion);
+        }
+
+#if UNITY_EDITOR
+        private static Color GizmoColor = new Color(0, 1, 0, 0.3f);
+
+        private void OnDrawGizmosSelected()
+        {
+            Handles.color = GizmoColor;
+            Handles.DrawSolidDisc(transform.position, transform.forward, m_Radius);
+        }
+#endif
     }
 }

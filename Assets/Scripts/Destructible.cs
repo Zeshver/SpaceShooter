@@ -22,10 +22,17 @@ namespace SpaceShooter
         [SerializeField] private int m_HitPoints;
 
         /// <summary>
+        /// Maximum number of hitpoints
+        /// </summary>
+        [SerializeField] private int m_MaxHitPoints;
+
+        /// <summary>
         /// Current hitpoints
         /// </summary>
         private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
+
+        [SerializeField] private float m_TimerIndestructible;
 
         #endregion
 
@@ -34,6 +41,19 @@ namespace SpaceShooter
         protected virtual void Start()
         {
             m_CurrentHitPoints = m_HitPoints;
+        }
+
+        protected virtual void Update()
+        {
+            if (m_TimerIndestructible > 0)
+            {
+                m_TimerIndestructible -= Time.deltaTime;
+
+                if (m_TimerIndestructible <= 0)
+                {
+                    m_TimerIndestructible = 0;
+                }
+            }
         }
 
         #endregion
@@ -47,12 +67,20 @@ namespace SpaceShooter
         {
             if (m_Indestructible) return;
 
-            m_CurrentHitPoints -= damage;
+            if (m_TimerIndestructible <= 0)
+            {
+                m_CurrentHitPoints -= damage;
+            }            
 
             if (m_CurrentHitPoints <= 0)
             {
                 OnDeath();
             }
+        }
+
+        public void AddIndestructible(int timer)
+        {
+            m_TimerIndestructible = timer;
         }
 
         #endregion

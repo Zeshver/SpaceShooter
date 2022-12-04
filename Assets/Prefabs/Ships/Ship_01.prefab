@@ -148,7 +148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2280788292097402730}
   - component: {fileID: 2280788292097402731}
-  - component: {fileID: 6346643078613909394}
   - component: {fileID: 2280788292097402732}
   - component: {fileID: 1311735947}
   - component: {fileID: 821595185450354961}
@@ -200,22 +199,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6346643078613909394
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2280788292097402733}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &2280788292097402732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +214,8 @@ MonoBehaviour:
   m_Nickname: Player
   m_Indestructible: 0
   m_HitPoints: 20
+  m_MaxHitPoints: 100
+  m_TimerIndestructible: 0
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -243,9 +228,8 @@ MonoBehaviour:
   m_MaxAmmo: 10
   m_MinThrust: 500
   m_MaxThrust: 1000
-  m_MinTimerThrustBoost: 0
-  m_MaxTimerThrustBoost: 10
   m_EnergyRegenPerSecond: 2
+  m_TimerThrustBoost: 0
   m_Turrets:
   - {fileID: 1333811942}
   - {fileID: 1846827427}
@@ -277,8 +261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Ship: {fileID: 2280788292097402732}
-  m_LifeTimeParticleOnDeath: 2
   m_ParticleOnDeath: {fileID: 6573286664108461499}
+  m_LifeTimeParticleOnDeath: 1
 --- !u!114 &497916515317126310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,6 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2280788293338032155}
+  - component: {fileID: 8260549356508076773}
   - component: {fileID: 2280788293338032153}
   m_Layer: 0
   m_Name: VisualModel
@@ -326,6 +311,22 @@ Transform:
   m_Father: {fileID: 2280788292097402730}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8260549356508076773
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280788293338032156}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!212 &2280788293338032153
 SpriteRenderer:
   m_ObjectHideFlags: 0

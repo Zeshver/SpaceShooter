@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 201303b3db51ca94ea3c01def0aa631a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1312307965634553099}
   - component: {fileID: 6719667888537440008}
   m_Layer: 0
-  m_Name: SmallAsteroid
+  m_Name: SmallAsteroid_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Nickname: Asteroid
   m_Indestructible: 0
   m_HitPoints: 10
+  m_MaxHitPoints: 0
+  m_TimerIndestructible: 0
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []

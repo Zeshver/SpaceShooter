@@ -9,13 +9,14 @@ namespace SpaceShooter
             AddAmmo,
             AddEnergy,
             AddSpeed,
-            Addnvulnerability
+            AddIndestructible
         }
 
         [SerializeField] private EffectType m_EffectType;
 
         [SerializeField] private float m_Value;
         [SerializeField] private float m_ThrustBoostTime;
+        [SerializeField] private float m_IndestructibleTime;
 
         protected override void OnPickeUp(SpaceShip ship)
         {
@@ -31,7 +32,12 @@ namespace SpaceShooter
 
             if (m_EffectType == EffectType.AddSpeed)
             {
-                ship.AddSpeed((int)m_Value, m_ThrustBoostTime);
+                ship.AddSpeed((int)m_Value, (int)m_ThrustBoostTime);
+            }
+
+            if (m_EffectType == EffectType.AddIndestructible)
+            {
+                ship.AddIndestructible((int)m_IndestructibleTime);
             }
         }
     }

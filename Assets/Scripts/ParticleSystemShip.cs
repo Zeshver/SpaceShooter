@@ -4,10 +4,10 @@ namespace SpaceShooter
 {
     public class ParticleSystemShip : MonoBehaviour
     {
-        [SerializeField] private SpaceShip m_Ship;
+        [SerializeField] private SpaceShip m_Ship;        
+        [SerializeField] private ParticleSystem m_ParticleOnDeath;
 
         [SerializeField] private int m_LifeTimeParticleOnDeath;
-        [SerializeField] private ParticleSystem m_ParticleOnDeath;
 
         private void Start()
         {

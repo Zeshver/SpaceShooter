@@ -43,7 +43,7 @@ namespace SpaceShooter
         private float m_PrimaryEnergy;
         private int m_SecondaryAmmo;
 
-        [SerializeField] private float m_Timer;
+        [SerializeField] private float m_TimerThrustBoost;
 
         [SerializeField] private Turret[] m_Turrets;
 
@@ -79,17 +79,20 @@ namespace SpaceShooter
             InitOffensive();
         }
 
-        private void Update()
+        protected override void Update()
         {
-            if (m_Timer > 0)
-            {
-                m_Timer -= Time.deltaTime;
-            }
+            base.Update();
 
-            if (m_Timer <= 0)
+            if (m_TimerThrustBoost > 0)
             {
-                m_Thrust = m_MinThrust;
-            }
+                m_TimerThrustBoost -= Time.deltaTime;
+
+                if (m_TimerThrustBoost <= 0)
+                {
+                    m_TimerThrustBoost = 0;
+                    m_Thrust = m_MinThrust;
+                }
+            }            
         }
 
         private void FixedUpdate()
@@ -140,7 +143,7 @@ namespace SpaceShooter
         {
             m_Thrust = Mathf.Clamp(m_Thrust + speed, 0, m_MaxThrust);
 
-            m_Timer = timer;
+            m_TimerThrustBoost = timer;
         }
 
         private void InitOffensive()
