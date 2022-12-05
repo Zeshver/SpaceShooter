@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2581843348046988525}
   - component: {fileID: 3934337520619207220}
-  - component: {fileID: 3047822321776503715}
+  - component: {fileID: -5130455552684666303}
   m_Layer: 0
   m_Name: AddSpeedPowerup
   m_TagString: Untagged
@@ -50,7 +50,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3047822321776503715
+--- !u!114 &-5130455552684666303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,14 +59,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1389939180956643661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eca48c767fcf8de419ce660680e07d02, type: 3}
+  m_Script: {fileID: 11500000, guid: 55fa2d19ff2273347b8c4ae18688a85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectType: 2
-  m_Value: 5000
-  m_SecondValue: 20
-  m_ThrustBoostTime: 5
-  m_IndestructibleTime: 0
+  m_Thrust: 1000
+  m_LinearVelocity: 10
+  m_ThrustBoostTime: 10
 --- !u!1 &5291856420025968666
 GameObject:
   m_ObjectHideFlags: 0

@@ -141,10 +141,10 @@ namespace SpaceShooter
             m_SecondaryAmmo = Mathf.Clamp(m_SecondaryAmmo + ammo, 0, m_MaxAmmo);
         }
 
-        public void AddSpeed(int thrust, int maxLinearVelocity, float timer)
+        public void AddSpeed(int thrust, int linearVelocity, float timer)
         {
             m_Thrust = Mathf.Clamp(m_Thrust + thrust, 0, m_MaxThrust);
-            m_LinearVelocity = maxLinearVelocity;
+            m_LinearVelocity = linearVelocity;
 
             m_TimerThrustBoost = timer;
         }

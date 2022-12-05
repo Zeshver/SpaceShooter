@@ -43,6 +43,7 @@ namespace SpaceShooter
             if (m_Ship.DrawAmmo(m_TurretProperties.AmmoUsage) == false) return;
 
             Projectile projectile = Instantiate(m_TurretProperties.ProjectilePrefab).GetComponent<Projectile>();
+            projectile.SetParentShooter(m_Ship);
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
 

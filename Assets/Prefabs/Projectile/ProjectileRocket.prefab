@@ -83,7 +83,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.20000039
+        value: 0.39047587
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -104,7 +104,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6415094, g: 0.2907394, b: 0.16642934, a: 1}
+      key0: {r: 0.8113208, g: 0.14925243, b: 0.1791933, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0.43137255}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Lifetime: 10
   m_Damage: 2
   m_ImpactEffect: {fileID: 0}
+  m_ParentDest: {fileID: 0}
   m_ParticleSystemExplosion: {fileID: 4264442108515260823}
   m_Radius: 2
   m_ExplosionDamage: 10

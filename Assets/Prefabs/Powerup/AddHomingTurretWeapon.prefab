@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 898b28203ff1ce943a7928c92fdecc63, type: 3}
-  m_Color: {r: 0.7075472, g: 0.21693665, b: 0.21693665, a: 1}
+  m_Color: {r: 0.27843142, g: 0.2983034, b: 0.7254902, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7081491875521158267}
   - component: {fileID: 2987883698796893793}
   m_Layer: 0
-  m_Name: AddRocketWeapon
+  m_Name: AddHomingTurretWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d23ee2beedbcdc4e960f6d360eb9736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Properties: {fileID: 11400000, guid: f5276fc3cd7db4945af8d1d9dd54287a, type: 2}
+  m_Properties: {fileID: 11400000, guid: 34731ca47095dfc4986a8112e395c5a5, type: 2}
