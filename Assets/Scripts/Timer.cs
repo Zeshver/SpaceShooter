@@ -1,28 +1,26 @@
-using UnityEngine;
-
 namespace SpaceShooter
 {
-    public class Timer : MonoBehaviour
+    public class Timer
     {
-        [SerializeField] private float m_Timer;
-        public float TimerBase => m_Timer;
+        private float m_CurrentTime;
 
-        private void Update()
+        public bool IsFinished => m_CurrentTime <= 0;
+
+        public Timer(float startTime)
         {
-            if (m_Timer < 0)
-            {
-                m_Timer = 0;
-            }
-
-            if (m_Timer > 0)
-            {
-                m_Timer -= Time.deltaTime;
-            }
+            Start(startTime);
         }
 
-        public void AddTimer(float timer)
+        public void Start(float startTime)
         {
-            m_Timer = timer;
+            m_CurrentTime = startTime;
+        }
+
+        public void RemoveTime(float deltaTime)
+        {
+            if (m_CurrentTime <= 0) return;
+
+            m_CurrentTime -= deltaTime;
         }
     }
 }
