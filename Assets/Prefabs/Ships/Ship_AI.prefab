@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574dd309cb1aa3143b56aba554d9ef19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AIBehaviour: 0
+  m_AIBehaviour: 1
   m_NavigationLinear: 0
   m_NavigationAngular: 0
   m_RandomSelectMovePointTime: 0

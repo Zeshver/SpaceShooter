@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace SpaceShooter
 {
+    [RequireComponent(typeof(SpaceShip))]
     public class AIController : MonoBehaviour
     {
         public enum AIBehaviour
@@ -32,23 +34,88 @@ namespace SpaceShooter
 
         private Destructible m_SelectedTarget;
 
-        private Timer TestTimer;
-
         private void Start()
         {
-            TestTimer = new Timer(3);
+            m_SpaceShip = GetComponent<SpaceShip>();
+
+            InitTimers();
         }
 
         private void Update()
         {
-            TestTimer.RemoveTime(Time.deltaTime);
+            UpdateTimers();
 
-            if (TestTimer.IsFinished == true)
+            UpdateAI();
+        }
+
+        private void UpdateAI()
+        {
+            if (m_AIBehaviour == AIBehaviour.Null)
             {
-                Debug.Log("Test");
 
-                TestTimer.Start(3);
+            }
+
+            if (m_AIBehaviour == AIBehaviour.Patrol)
+            {
+                UpdateBehaviourPatrol();
             }
         }
+
+        public void UpdateBehaviourPatrol()
+        {
+            ActionFindNewMovePosition();
+            ActionControlShip();
+            ActionFindNewAttackTarget();
+            ActionFire();
+        }
+
+        private void ActionFindNewMovePosition()
+        {
+
+        }
+
+        private void ActionControlShip()
+        {
+            m_SpaceShip.ThrustControl = m_NavigationLinear;
+
+            m_SpaceShip.TorqueControl = ComputeAliginTorqueNormalized(m_MovePosition, m_SpaceShip.transform) * m_NavigationAngular;
+        }
+
+        private const float MAX_ANGLE = 45.0f;
+
+        private static float ComputeAliginTorqueNormalized(Vector3 targetPosition, Transform ship)
+        {
+            Vector2 localTargetPosition = ship.InverseTransformPoint(targetPosition);
+
+            float angle = Vector3.SignedAngle(localTargetPosition, Vector3.up, Vector3.forward);
+
+            angle = Mathf.Clamp(angle, -MAX_ANGLE, MAX_ANGLE) / MAX_ANGLE;
+
+            return -angle;
+        }
+
+        private void ActionFindNewAttackTarget()
+        {
+
+        }
+
+        private void ActionFire()
+        {
+
+        }
+
+        #region Timers
+
+        private void InitTimers()
+        {
+
+        }
+
+        private void UpdateTimers()
+        {
+
+        }
+
+        #endregion
     }
 }

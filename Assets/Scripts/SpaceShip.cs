@@ -15,6 +15,7 @@ namespace SpaceShooter
         /// <summary>
         /// Pushing force
         /// </summary>
+        [Header("Thrust")]
         [SerializeField] private float m_Thrust;
         [SerializeField] private float m_MinThrust;
         [SerializeField] private float m_MaxThrust;
@@ -22,11 +23,13 @@ namespace SpaceShooter
         /// <summary>
         /// Rotating force
         /// </summary>
+        [Header("Mobility")]
         [SerializeField] private float m_Mobility;
 
         /// <summary>
         /// Default,maximum and minimum line speed
         /// </summary>
+        [Header("Linear velocity")]
         [SerializeField] private float m_LinearVelocity;
         [SerializeField] private float m_MinLinearVelocity;
         [SerializeField] private float m_MaxLinearVelocity;
@@ -34,8 +37,10 @@ namespace SpaceShooter
         /// <summary>
         /// Maximum rotate speed
         /// </summary>
+        [Header("Angular velocity")]
         [SerializeField] private float m_MaxAngularVelocity;
-        
+
+        [Header("Weapon and improvements")]
         [SerializeField] private int m_MaxAmmo;
         [SerializeField] private int m_MaxEnergy;
         [SerializeField] private int m_EnergyRegenPerSecond;
