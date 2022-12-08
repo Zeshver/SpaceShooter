@@ -23,14 +23,14 @@ namespace SpaceShooter
             Vector2 m_Position = transform.position;
             float stepLenght = Time.deltaTime * m_Velocity;
 
-            for (int i = 0; i < AllDestructibles.Length; i++)
+            foreach (Destructible target in AllDestructibles)
             {
-                Vector2 diff = (Vector2)AllDestructibles[i].transform.position - m_Position;
+                Vector2 diff = (Vector2)target.transform.position - m_Position;
                 float curDistance = diff.sqrMagnitude;
 
-                if (curDistance < distance && AllDestructibles[i] != m_ParentDest)
+                if (curDistance < distance && target != m_ParentDest)
                 {
-                    m_Target = AllDestructibles[i];
+                    m_Target = target;
                     distance = curDistance;
                 }
             }

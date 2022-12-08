@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace SpaceShooter
 {
@@ -13,6 +12,8 @@ namespace SpaceShooter
         }
 
         [SerializeField] private AIBehaviour m_AIBehaviour;
+
+        [SerializeField] private AIPointPatrol m_PatrolPoint;
 
         [Range(0.0f, 1.0f)]
         [SerializeField] private float m_NavigationLinear;
@@ -33,6 +34,8 @@ namespace SpaceShooter
         private Vector3 m_MovePosition;
 
         private Destructible m_SelectedTarget;
+
+        private Timer m_RandomizeDirectionTimer;
 
         private void Start()
         {
@@ -67,11 +70,49 @@ namespace SpaceShooter
             ActionControlShip();
             ActionFindNewAttackTarget();
             ActionFire();
+            ActionEvadeCollision();
         }
 
         private void ActionFindNewMovePosition()
         {
+            if (m_AIBehaviour == AIBehaviour.Patrol)
+            {
+                if (m_SelectedTarget != null)
+                {
+                    m_MovePosition = m_SelectedTarget.transform.position;
+                }
+                else
+                {
+                    if (m_PatrolPoint != null)
+                    {
+                        bool isInsidePatrolZone = (m_PatrolPoint.transform.position - transform.position).sqrMagnitude < m_PatrolPoint.Radius * m_PatrolPoint.Radius;
 
+                        if (isInsidePatrolZone == true)
+                        {
+                            if (m_RandomizeDirectionTimer.IsFinished == true)
+                            {
+                                Vector2 newPoint = UnityEngine.Random.onUnitSphere * m_PatrolPoint.Radius + m_PatrolPoint.transform.position;
+
+                                m_MovePosition = newPoint;
+
+                                m_RandomizeDirectionTimer.Start(m_RandomSelectMovePointTime);
+                            }
+                        }
+                        else
+                        {
+                            m_MovePosition = m_PatrolPoint.transform.position;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ActionEvadeCollision()
+        {
+            if (Physics2D.Raycast(transform.position, transform.up, m_EvadeRayLenght) == true)
+            {
+                m_MovePosition = transform.position + transform.right * 100.0f;
+            }
         }
 
         private void ActionControlShip()
@@ -108,14 +149,20 @@ namespace SpaceShooter
 
         private void InitTimers()
         {
-
+            m_RandomizeDirectionTimer = new Timer(m_RandomSelectMovePointTime);
         }
 
         private void UpdateTimers()
         {
-
+            m_RandomizeDirectionTimer.RemoveTime(Time.deltaTime);
         }
 
         #endregion
+
+        public void SetPatrolBehaviour(AIPointPatrol point)
+        {
+            m_AIBehaviour = AIBehaviour.Patrol;
+            m_PatrolPoint = point;
+        }
     }
 }

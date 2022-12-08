@@ -213,12 +213,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AIBehaviour: 1
-  m_NavigationLinear: 0
-  m_NavigationAngular: 0
-  m_RandomSelectMovePointTime: 0
+  m_PatrolPoint: {fileID: 0}
+  m_NavigationLinear: 0.203
+  m_NavigationAngular: 0.203
+  m_RandomSelectMovePointTime: 5
   m_FindNewTargetTime: 0
   m_ShootDelay: 0
-  m_EvadeRayLenght: 0
+  m_EvadeRayLenght: 3
 --- !u!114 &2280788292097402732
 MonoBehaviour:
   m_ObjectHideFlags: 0
