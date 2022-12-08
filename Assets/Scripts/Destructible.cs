@@ -115,6 +115,8 @@ namespace SpaceShooter
             m_AllDestructibles.Remove(this);
         }
 
+        public const int TeamIdNeutral = 0;
+
         [SerializeField] private int m_TeamId;
         public int TeamId => m_TeamId;
 

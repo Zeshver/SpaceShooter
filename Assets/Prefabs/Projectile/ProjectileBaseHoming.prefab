@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6193776339886917547}
-  - component: {fileID: 3985885451230224601}
+  - component: {fileID: 1970197857232977996}
   - component: {fileID: 8469364213184781886}
   m_Layer: 0
   m_Name: ProjectileBaseHoming
@@ -165,7 +165,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3985885451230224601
+--- !u!114 &1970197857232977996
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,18 +174,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3354272563132077730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3543e5307b261764f91210858bcc0c9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 429067a39b6e56b45925672f9d60f13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
   type: 0
-  m_Velocity: 15
+  m_Velocity: 10
   m_Lifetime: 10
-  m_Damage: 1
+  m_Damage: 2
   m_ImpactEffect: {fileID: 0}
   m_ParentDest: {fileID: 0}
-  AllDestructibles: []
   m_Target: {fileID: 0}
+  isHoming: 1
 --- !u!82 &8469364213184781886
 AudioSource:
   m_ObjectHideFlags: 0

@@ -237,6 +237,7 @@ MonoBehaviour:
   m_HitPoints: 20
   m_MaxHitPoints: 100
   m_TimerIndestructible: 0
+  m_TeamId: 2
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []

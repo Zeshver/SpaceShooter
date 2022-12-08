@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace SpaceShooter
 {
@@ -12,7 +14,7 @@ namespace SpaceShooter
 
         public ProjectileType type;
 
-        [SerializeField] protected float m_Velocity;
+        [SerializeField] private float m_Velocity;
 
         [SerializeField] private float m_Lifetime;
 
@@ -20,14 +22,20 @@ namespace SpaceShooter
 
         [SerializeField] private ImpactEffect m_ImpactEffect;
 
-        [SerializeField] protected Destructible m_ParentDest;
+        [SerializeField] private Destructible m_ParentDest;
+
+        [SerializeField] private Destructible m_Target;
+
+        [SerializeField] private bool isHoming = false;
 
         private float m_Timer;
 
         protected virtual void Update()
         {
+            m_Target = SearchTarget();
+
             float stepLenght = Time.deltaTime * m_Velocity;
-            Vector2 step = transform.up * stepLenght;
+            Vector2 step = GetDirection() * stepLenght;
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLenght);
 
@@ -54,9 +62,47 @@ namespace SpaceShooter
             {
                 transform.position += new Vector3(step.x, step.y, 0);
             }
+
+            if (type == ProjectileType.Homing)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, m_Target.transform.position, stepLenght);
+            }
         }
 
-        private void OnProjectileLifeEnd(Collider2D col, Vector2 pos)
+        private Vector3 GetDirection()
+        {
+            if (isHoming && m_Target != null)
+            {
+                transform.up = (m_Target.transform.position - transform.position).normalized;
+                return (m_Target.transform.position - transform.position).normalized;
+            }
+            else
+            {
+                return transform.up;
+            }
+        }
+
+        private Destructible SearchTarget()
+        {
+            float maxDist = float.MaxValue;
+
+            Destructible potentialTarget = null;
+
+            foreach (var v in Destructible.AllDestructibles)
+            {
+                float dist = Vector2.Distance(transform.position, v.transform.position);
+
+                if (dist < maxDist && v != m_ParentDest)
+                {
+                    maxDist = dist;
+                    potentialTarget = v;
+                }
+            }
+
+            return potentialTarget;
+        }
+
+        protected void OnProjectileLifeEnd(Collider2D col, Vector2 pos)
         {
             Destroy(gameObject);
         }
