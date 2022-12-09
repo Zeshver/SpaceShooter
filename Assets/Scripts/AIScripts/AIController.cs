@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using UnityEngine;
 
 namespace SpaceShooter
@@ -9,7 +8,8 @@ namespace SpaceShooter
         public enum AIBehaviour
         {
             Null,
-            Patrol
+            Patrol,
+            PatrolToThePoint
         }
 
         [SerializeField] private AIBehaviour m_AIBehaviour;
@@ -65,6 +65,11 @@ namespace SpaceShooter
             {
                 UpdateBehaviourPatrol();
             }
+
+            if (m_AIBehaviour == AIBehaviour.PatrolToThePoint)
+            {
+                UpdateBehaviourPatrol();
+            }
         }
 
         public void UpdateBehaviourPatrol()
@@ -104,6 +109,30 @@ namespace SpaceShooter
                         else
                         {
                             m_MovePosition = m_PatrolPoint.transform.position;
+                        }
+                    }
+                }
+            }
+
+            if (m_AIBehaviour == AIBehaviour.PatrolToThePoint)
+            {
+                if (m_SelectedTarget != null)
+                {
+                    m_MovePosition = m_SelectedTarget.transform.position;
+                }
+                else
+                {
+                    Vector2 point = transform.position;
+
+                    if (m_PatrolPoint != null)
+                    {
+                        if ((Vector2)m_MovePosition != point || (Vector2)m_MovePosition == point)
+                        {
+                            AIPoints p = m_PatrolPoint.AllPoints[UnityEngine.Random.Range(0, m_PatrolPoint.AllPoints.Count - 1)];
+
+                            point = p.transform.position;
+
+                            m_MovePosition = point;
                         }
                     }
                 }
