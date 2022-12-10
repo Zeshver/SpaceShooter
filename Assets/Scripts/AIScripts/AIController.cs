@@ -87,7 +87,7 @@ namespace SpaceShooter
             {
                 if (m_SelectedTarget != null)
                 {
-                    m_MovePosition = m_SelectedTarget.transform.position;
+                    m_MovePosition = MakeLead();
                 }
                 else
                 {
@@ -212,6 +212,26 @@ namespace SpaceShooter
             }
 
             return potentialTarget;
+        }
+
+        private Vector2 MakeLead()
+        {
+            Vector2 lead;
+
+            Vector2 pos = transform.position;
+            Vector2 posEnemy = m_SelectedTarget.transform.position;
+
+            float dist = Vector2.Distance(pos, posEnemy);
+
+            Vector2 velocityEnemy = m_SelectedTarget.GetComponent<Rigidbody2D>().velocity;
+
+            float startSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody2D>().velocity).magnitude;
+
+            Vector2 estimatedPosition = posEnemy + (dist / startSpeed) * velocityEnemy;
+
+            lead = estimatedPosition - pos;
+
+            return lead;
         }
 
         #region Timers

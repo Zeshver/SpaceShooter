@@ -552,7 +552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &422928984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1632,10 +1632,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EntityPrefab:
-  - {fileID: 2280788292097402732, guid: c486587d012372542a5ba7cac5fb7054, type: 3}
+  - {fileID: 2280788292097402732, guid: 3f13324dc7ad1b1479a60d5ef342a751, type: 3}
   m_Area: {fileID: 1605233307}
   m_SpawnMode: 0
-  m_NumSpawn: 5
+  m_NumSpawn: 1
   m_RespawnTime: 0
 --- !u!1 &1771678296
 GameObject:
