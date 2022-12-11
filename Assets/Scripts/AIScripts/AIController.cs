@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 namespace SpaceShooter
 {
@@ -16,6 +18,8 @@ namespace SpaceShooter
 
         [SerializeField] private AIPointPatrol m_PatrolPoint;
 
+        [SerializeField] private AIPoints m_Point;
+
         [Range(0.0f, 1.0f)]
         [SerializeField] private float m_NavigationLinear;
 
@@ -30,6 +34,8 @@ namespace SpaceShooter
 
         [SerializeField] private float m_EvadeRayLenght;
 
+        [SerializeField] private float m_Coef;
+
         private SpaceShip m_SpaceShip;
 
         private Vector3 m_MovePosition;
@@ -43,6 +49,7 @@ namespace SpaceShooter
         private void Start()
         {
             m_SpaceShip = GetComponent<SpaceShip>();
+            m_PatrolPoint = FindObjectOfType<AIPointPatrol>();
 
             InitTimers();
         }
@@ -118,21 +125,26 @@ namespace SpaceShooter
             {
                 if (m_SelectedTarget != null)
                 {
-                    m_MovePosition = m_SelectedTarget.transform.position;
+                    m_MovePosition = MakeLead();
                 }
                 else
                 {
-                    Vector2 point = transform.position;
-
                     if (m_PatrolPoint != null)
                     {
-                        if ((Vector2)m_MovePosition != point || (Vector2)m_MovePosition == point)
+                        if (m_Point == null)
                         {
-                            AIPoints p = m_PatrolPoint.AllPoints[UnityEngine.Random.Range(0, m_PatrolPoint.AllPoints.Count - 1)];
+                            m_Point = m_PatrolPoint.AllPoints[UnityEngine.Random.Range(0, m_PatrolPoint.AllPoints.Count)];
 
-                            point = p.transform.position;
+                            m_MovePosition = m_Point.transform.position;
+                        }
 
-                            m_MovePosition = point;
+                        bool isInsidePatrolZone = (m_Point.transform.position - transform.position).sqrMagnitude < m_Point.Radius * m_Point.Radius;
+
+                        if (isInsidePatrolZone == true)
+                        {
+                            m_Point = m_PatrolPoint.AllPoints[UnityEngine.Random.Range(0, m_PatrolPoint.AllPoints.Count)];
+
+                            m_MovePosition = m_Point.transform.position;
                         }
                     }
                 }
@@ -218,18 +230,9 @@ namespace SpaceShooter
         {
             Vector2 lead;
 
-            Vector2 pos = transform.position;
-            Vector2 posEnemy = m_SelectedTarget.transform.position;
+            float velocityEnemy = m_SelectedTarget.transform.GetComponent<Rigidbody2D>().velocity.magnitude;
 
-            float dist = Vector2.Distance(pos, posEnemy);
-
-            Vector2 velocityEnemy = m_SelectedTarget.GetComponent<Rigidbody2D>().velocity;
-
-            float startSpeed = transform.InverseTransformDirection(GetComponent<Rigidbody2D>().velocity).magnitude;
-
-            Vector2 estimatedPosition = posEnemy + (dist / startSpeed) * velocityEnemy;
-
-            lead = estimatedPosition - pos;
+            lead = m_SelectedTarget.transform.position + m_SelectedTarget.transform.up * (velocityEnemy * m_Coef);
 
             return lead;
         }
