@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  m_ScoreValue: 100
   m_Mass: 1
   m_Thrust: 0
   m_MinThrust: 500
