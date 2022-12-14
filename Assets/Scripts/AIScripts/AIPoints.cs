@@ -1,10 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceShooter
 {
     public class AIPoints : MonoBehaviour
     {
-        [SerializeField] private AIPointPatrol m_AIPointPatrol;
+        [SerializeField] private static List<AIPoints> m_AllAIPoints;
+        public static IReadOnlyCollection<AIPoints> AllAIPoints => m_AllAIPoints;
 
         [SerializeField] private float m_Radius;
         public float Radius => m_Radius;
@@ -13,9 +15,12 @@ namespace SpaceShooter
 
         private void Start()
         {
-            m_AIPointPatrol = FindObjectOfType<AIPointPatrol>();
+            if (m_AllAIPoints == null)
+            {
+                m_AllAIPoints = new List<AIPoints>();
+            }
 
-            m_AIPointPatrol.AllPoints.Add(this);
+            m_AllAIPoints.Add(this);
         }
 
         private void OnDrawGizmosSelected()

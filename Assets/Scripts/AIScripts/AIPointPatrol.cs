@@ -5,11 +5,11 @@ namespace SpaceShooter
 {
     public class AIPointPatrol : MonoBehaviour
     {
-        [SerializeField] private float m_Radius;
-        public float Radius => m_Radius;
-
         [SerializeField] private List<AIPoints> m_AllPoints;
         public List<AIPoints> AllPoints => m_AllPoints;
+
+        [SerializeField] private float m_Radius;
+        public float Radius => m_Radius;
 
         private static readonly Color GizmoColor = new Color(1, 0, 0, 0.3f);
 
@@ -19,6 +19,8 @@ namespace SpaceShooter
             {
                 m_AllPoints = new List<AIPoints>();
             }
+
+            m_AllPoints = (List<AIPoints>)AIPoints.AllAIPoints;
         }
 
         private void OnDrawGizmosSelected()
