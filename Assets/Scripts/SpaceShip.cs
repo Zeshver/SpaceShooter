@@ -31,6 +31,7 @@ namespace SpaceShooter
         /// </summary>
         [Header("Linear velocity")]
         [SerializeField] private float m_LinearVelocity;
+        public float LinearVelocity => m_LinearVelocity;
         [SerializeField] private float m_MinLinearVelocity;
         [SerializeField] private float m_MaxLinearVelocity;
 
@@ -39,12 +40,18 @@ namespace SpaceShooter
         /// </summary>
         [Header("Angular velocity")]
         [SerializeField] private float m_MaxAngularVelocity;
+        public float MaxAngularVelocity => m_MaxAngularVelocity;
 
         [Header("Weapon and improvements")]
         [SerializeField] private int m_MaxAmmo;
         [SerializeField] private int m_MaxEnergy;
         [SerializeField] private int m_EnergyRegenPerSecond;
 
+        [Header("Image ship")]
+        [SerializeField] private Sprite m_PreviewImage;
+        public Sprite PreviewImage => m_PreviewImage;
+
+        [Header("Other parameters")]
         [SerializeField] private float m_TimerThrustBoost;
 
         [SerializeField] private Turret[] m_Turrets;
