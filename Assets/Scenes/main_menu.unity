@@ -420,12 +420,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67fa136b8a6c2c4a81521b1d5b3be1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 0}
-  m_Shipname: {fileID: 0}
-  m_Hitpoints: {fileID: 0}
-  m_Speed: {fileID: 0}
-  m_Agility: {fileID: 0}
-  m_Preview: {fileID: 0}
+  m_Prefab: {fileID: 2280788292097402732, guid: 0c81fbc7b9f60af4ea488ef93c79a100, type: 3}
+  m_Shipname: {fileID: 363693280}
+  m_Hitpoints: {fileID: 1901707627}
+  m_Speed: {fileID: 1505857270}
+  m_Agility: {fileID: 1406558362}
+  m_Preview: {fileID: 717249128}
 --- !u!1 &340077484
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,12 +2583,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67fa136b8a6c2c4a81521b1d5b3be1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Prefab: {fileID: 0}
-  m_Shipname: {fileID: 0}
-  m_Hitpoints: {fileID: 0}
-  m_Speed: {fileID: 0}
-  m_Agility: {fileID: 0}
-  m_Preview: {fileID: 0}
+  m_Prefab: {fileID: 2280788292097402732, guid: 0c81fbc7b9f60af4ea488ef93c79a100, type: 3}
+  m_Shipname: {fileID: 534183122}
+  m_Hitpoints: {fileID: 1417589737}
+  m_Speed: {fileID: 980134287}
+  m_Agility: {fileID: 1889365390}
+  m_Preview: {fileID: 1041666432}
 --- !u!1 &980134285
 GameObject:
   m_ObjectHideFlags: 0
