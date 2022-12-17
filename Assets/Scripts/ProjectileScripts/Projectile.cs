@@ -70,7 +70,14 @@ namespace SpaceShooter
 
             if (type == ProjectileType.Homing)
             {
-                transform.position = Vector3.MoveTowards(transform.position, m_Target.transform.position, stepLenght);
+                if (m_Target != null)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, m_Target.transform.position, stepLenght);
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 

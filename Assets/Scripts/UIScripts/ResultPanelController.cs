@@ -8,6 +8,7 @@ namespace SpaceShooter
         [SerializeField] private TextMeshProUGUI m_Kills;
         [SerializeField] private TextMeshProUGUI m_Score;
         [SerializeField] private TextMeshProUGUI m_Time;
+        [SerializeField] private float m_LimitTime;
 
         [SerializeField] private TextMeshProUGUI m_Result;
 
@@ -27,7 +28,16 @@ namespace SpaceShooter
             m_Success = success;
 
             m_Kills.text = "Kills : " + levelResult.numKills.ToString();
-            m_Score.text = "Score : " + levelResult.score.ToString();
+
+            if (levelResult.time < m_LimitTime && success)
+            {
+                m_Score.text = "Score 2X : " + (levelResult.score * 2).ToString();
+            }
+            else
+            {
+                m_Score.text = "Score : " + levelResult.score.ToString();
+            }
+
             m_Time.text = "Time : " + levelResult.time.ToString();
 
             m_Result.text = success ? "Win" : "Lose";

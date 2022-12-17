@@ -61,6 +61,10 @@ namespace SpaceShooter
             LevelStatistics.score = Player.Instance.Score;
             LevelStatistics.numKills = Player.Instance.NumKills;
             LevelStatistics.time = (int)LevelController.Instance.LevelTime;
+
+            GlobalStatisticsController.Instance.allScore += LevelStatistics.score;
+            GlobalStatisticsController.Instance.allNumKills += LevelStatistics.numKills;
+            GlobalStatisticsController.Instance.allTime += LevelStatistics.time;
         }
     }
 }

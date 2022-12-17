@@ -785,7 +785,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TargetShip: {fileID: 0}
   m_MobileJoystick: {fileID: 6633965601452825988}
-  m_ControlMode: 0
+  m_ControlMode: 1
   m_MobileFirePrimary: {fileID: 6633965599770316437}
   m_MobileFireSecondary: {fileID: 6633965600489800726}
 --- !u!114 &6633965599977146304
@@ -2264,6 +2264,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6633965599967229275}
     m_Modifications:
+    - target: {fileID: 4903512069732747645, guid: f9efc5cdae5879e4a84cdca1f355b925, type: 3}
+      propertyPath: m_LimitTime
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 7745874075523091380, guid: f9efc5cdae5879e4a84cdca1f355b925, type: 3}
       propertyPath: m_Name
       value: ResultPanel

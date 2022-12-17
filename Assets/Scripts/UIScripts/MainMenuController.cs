@@ -10,6 +10,10 @@ namespace SpaceShooter
 
         [SerializeField] private GameObject m_ShipSelection;
 
+        [SerializeField] private GameObject m_GlobalStatistic;
+
+        [SerializeField] private GameObject m_MainMenu;
+
         private void Start()
         {
             LevelSequenceController.PlayerShip = m_DefaultSpaceShip;
@@ -18,7 +22,6 @@ namespace SpaceShooter
         public void OnButtonStartNew()
         {
             m_EpisodeSelection.gameObject.SetActive(true);
-
             gameObject.SetActive(false);
         }
 
@@ -26,6 +29,19 @@ namespace SpaceShooter
         {
             m_ShipSelection.SetActive(true);
             gameObject.SetActive(false);
+        }
+
+        public void OnGlobalStatistic()
+        {
+            m_GlobalStatistic.SetActive(true);
+        }
+
+        public void OnBack()
+        {
+            m_MainMenu.SetActive(true);
+            m_EpisodeSelection.SetActive(false);
+            m_ShipSelection.SetActive(false);
+            m_GlobalStatistic.SetActive(false);
         }
 
         public void OnButtonExit()
