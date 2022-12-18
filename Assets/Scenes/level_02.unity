@@ -1064,7 +1064,7 @@ MonoBehaviour:
   - {fileID: 2280788292097402732, guid: 3f13324dc7ad1b1479a60d5ef342a751, type: 3}
   m_Area: {fileID: 1605233307}
   m_SpawnMode: 0
-  m_NumSpawn: 4
+  m_NumSpawn: 0
   m_RespawnTime: 0
 --- !u!1001 &1878289579
 PrefabInstance:
@@ -1309,6 +1309,10 @@ PrefabInstance:
       propertyPath: m_TargetShip
       value: 
       objectReference: {fileID: 814154088}
+    - target: {fileID: 6633965600296962055, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6633965601408977256, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1404,10 +1408,6 @@ PrefabInstance:
     - target: {fileID: 6801075202102540884, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8147113488469000143, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
-      propertyPath: m_LimitTime
-      value: 120
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
