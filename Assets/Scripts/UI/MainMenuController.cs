@@ -44,6 +44,11 @@ namespace SpaceShooter
             m_GlobalStatistic.SetActive(false);
         }
 
+        public void OnResetGlobalStatistics()
+        {
+            GlobalStatistics.Instance.Reset();
+        }
+
         public void OnButtonExit()
         {
             Application.Quit();
