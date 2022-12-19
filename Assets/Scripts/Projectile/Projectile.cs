@@ -39,9 +39,14 @@ namespace SpaceShooter
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, stepLenght);
 
+            if (m_ParentDest == null)
+            {
+                m_ParentDest = Player.Instance.ActiveShip.GetComponent<Destructible>();
+            }
+
             if (hit)
             {
-                Destructible dest = hit.collider.transform.root.GetComponent<Destructible>();
+                Destructible dest = hit.collider.transform.root.GetComponent<Destructible>();                
 
                 if (dest != null && dest != m_ParentDest)
                 {
