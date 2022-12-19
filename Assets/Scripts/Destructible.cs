@@ -21,6 +21,7 @@ namespace SpaceShooter
         /// Starting number of hitpoints
         /// </summary>
         [SerializeField] private int m_HitPoints;
+        public int HitPoints => m_HitPoints;
 
         /// <summary>
         /// Maximum number of hitpoints
@@ -31,7 +32,7 @@ namespace SpaceShooter
         /// Current hitpoints
         /// </summary>
         private int m_CurrentHitPoints;
-        public int HitPoints => m_CurrentHitPoints;
+        public int CurrentHitPoints => m_CurrentHitPoints;
 
         [SerializeField] private float m_TimerIndestructible;
 

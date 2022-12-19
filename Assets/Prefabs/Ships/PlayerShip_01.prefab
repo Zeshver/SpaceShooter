@@ -213,7 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Nickname: Player
   m_Indestructible: 0
-  m_HitPoints: 20
+  m_HitPoints: 35
   m_MaxHitPoints: 100
   m_TimerIndestructible: 0
   m_TeamId: 3
@@ -222,14 +222,14 @@ MonoBehaviour:
       m_Calls: []
   m_ScoreValue: 0
   m_Mass: 1
-  m_Thrust: 500
-  m_MinThrust: 500
+  m_Thrust: 450
+  m_MinThrust: 450
   m_MaxThrust: 10000
   m_Mobility: 2000
-  m_LinearVelocity: 5
-  m_MinLinearVelocity: 5
+  m_LinearVelocity: 8
+  m_MinLinearVelocity: 8
   m_MaxLinearVelocity: 50
-  m_MaxAngularVelocity: 360
+  m_MaxAngularVelocity: 200
   m_MaxAmmo: 10
   m_MaxEnergy: 20
   m_EnergyRegenPerSecond: 2

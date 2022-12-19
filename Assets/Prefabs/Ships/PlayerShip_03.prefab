@@ -222,14 +222,14 @@ MonoBehaviour:
       m_Calls: []
   m_ScoreValue: 0
   m_Mass: 1
-  m_Thrust: 500
-  m_MinThrust: 500
+  m_Thrust: 450
+  m_MinThrust: 450
   m_MaxThrust: 10000
   m_Mobility: 2000
-  m_LinearVelocity: 5
-  m_MinLinearVelocity: 5
+  m_LinearVelocity: 10
+  m_MinLinearVelocity: 10
   m_MaxLinearVelocity: 50
-  m_MaxAngularVelocity: 360
+  m_MaxAngularVelocity: 120
   m_MaxAmmo: 10
   m_MaxEnergy: 20
   m_EnergyRegenPerSecond: 2

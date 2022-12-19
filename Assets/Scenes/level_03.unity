@@ -1045,10 +1045,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EntityPrefab:
-  - {fileID: 2280788292097402732, guid: 3f13324dc7ad1b1479a60d5ef342a751, type: 3}
+  - {fileID: 2280788292097402732, guid: 9c0a69aa31a3e62479f02bdf69e70361, type: 3}
   m_Area: {fileID: 1605233307}
   m_SpawnMode: 0
-  m_NumSpawn: 4
+  m_NumSpawn: 1
   m_RespawnTime: 0
 --- !u!1001 &1878289579
 PrefabInstance:
@@ -1220,6 +1220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1881221363, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6633965599977146304, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
       propertyPath: m_Target
       value: 
@@ -1231,6 +1235,10 @@ PrefabInstance:
     - target: {fileID: 6633965599977146306, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
       propertyPath: m_TargetShip
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633965600296962055, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6633965601408977256, guid: a5ab6982b9ecfb84ab60ec905ad1fc3d, type: 3}
       propertyPath: m_RootOrder

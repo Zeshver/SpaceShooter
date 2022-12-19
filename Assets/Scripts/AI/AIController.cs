@@ -40,6 +40,8 @@ namespace SpaceShooter
 
         private Vector3 m_MovePosition;
 
+        private CircleArea m_CircleArea;
+
         private Destructible m_SelectedTarget;
 
         private Timer m_RandomizeDirectionTimer;
@@ -50,6 +52,7 @@ namespace SpaceShooter
         {
             m_SpaceShip = GetComponent<SpaceShip>();
             m_PatrolPoint = FindObjectOfType<AIPointPatrol>();
+            m_CircleArea = GetComponent<CircleArea>();
 
             InitTimers();
         }
@@ -223,7 +226,14 @@ namespace SpaceShooter
                 }
             }
 
-            return potentialTarget;
+            bool isInsidePatrolZone = (transform.position - potentialTarget.transform.position).sqrMagnitude < m_CircleArea.Radius * m_CircleArea.Radius;
+
+            if (isInsidePatrolZone)
+            {
+                return potentialTarget;
+            }
+
+            return null;
         }
 
         private Vector2 MakeLead()
@@ -259,6 +269,11 @@ namespace SpaceShooter
         {
             m_AIBehaviour = AIBehaviour.Patrol;
             m_PatrolPoint = point;
+        }
+
+        private void OnDestroy()
+        {
+            Player.Instance.AddKill();
         }
     }
 }
