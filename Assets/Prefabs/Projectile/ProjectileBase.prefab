@@ -183,8 +183,9 @@ MonoBehaviour:
   m_Lifetime: 10
   m_Damage: 2
   m_ImpactEffect: {fileID: 0}
-  AllDestructibles: []
+  m_ParentDest: {fileID: 0}
   m_Target: {fileID: 0}
+  isHoming: 0
 --- !u!82 &8469364213184781886
 AudioSource:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b3435118cbb961f4d83f36e6f8e9bdb0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0

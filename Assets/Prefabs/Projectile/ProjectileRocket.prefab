@@ -194,6 +194,8 @@ MonoBehaviour:
   m_Damage: 2
   m_ImpactEffect: {fileID: 0}
   m_ParentDest: {fileID: 0}
+  m_Target: {fileID: 0}
+  isHoming: 0
   m_ParticleSystemExplosion: {fileID: 4264442108515260823}
   m_Radius: 2
   m_ExplosionDamage: 10
@@ -210,7 +212,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ccd5bf6ec4119a24488840eb3e5c2cde, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0

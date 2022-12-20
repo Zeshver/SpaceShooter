@@ -1,9 +1,13 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace SpaceShooter
 {
     public class LevelSequenceController : SingletonBase<LevelSequenceController>
     {
+        [SerializeField] private float m_LimitTime;
+        public float LimitTime => m_LimitTime;
+
         public static string MainMenuSceneNickname = "main_menu";
 
         public Episode CurrentEpisode { get; private set; }
@@ -61,6 +65,11 @@ namespace SpaceShooter
             LevelStatistics.score = Player.Instance.Score;
             LevelStatistics.numKills = Player.Instance.NumKills;
             LevelStatistics.time = (int)LevelController.Instance.LevelTime;
+
+            if (LevelStatistics.time < LimitTime)
+            {
+                LevelStatistics.score *= 2;
+            }
 
             GlobalStatistics.Instance.allScore += LevelStatistics.score;
             GlobalStatistics.Instance.allNumKills += LevelStatistics.numKills;

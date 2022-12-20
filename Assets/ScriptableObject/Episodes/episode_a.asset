@@ -15,4 +15,4 @@ MonoBehaviour:
   m_EpisodeName: Episode A
   m_Levels:
   - level_01
-  m_PreviewImage: {fileID: 0}
+  m_PreviewImage: {fileID: 21300000, guid: 6969a7d80492f8b4ebd2529f42f90bf0, type: 3}
