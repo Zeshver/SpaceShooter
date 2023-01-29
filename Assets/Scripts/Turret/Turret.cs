@@ -2,10 +2,14 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Turret : MonoBehaviour
     {
         [SerializeField] private TurretMode m_TurretMode;
         public TurretMode Mode => m_TurretMode;
+
+        [SerializeField] private AudioSource m_AudioSource;
+        [SerializeField] private AudioClip[] m_AudioClip;
 
         [SerializeField] private TurretProperties m_TurretProperties;
 
@@ -20,6 +24,7 @@ namespace SpaceShooter
         private void Start()
         {
             m_Ship = transform.root.GetComponent<SpaceShip>();
+            m_AudioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -49,8 +54,15 @@ namespace SpaceShooter
 
             m_RefireTimer = m_TurretProperties.RateOfFire;
 
+            if (projectile.type == Projectile.ProjectileType.Single)
             {
-                // SFX
+                m_AudioSource.clip = m_AudioClip[0];
+                m_AudioSource.Play();
+            }
+            else
+            {
+                m_AudioSource.clip = m_AudioClip[1];
+                m_AudioSource.Play();
             }
         }
 
